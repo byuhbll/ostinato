@@ -27,11 +27,11 @@ your Perl code to add it to your path:
 Then add the following line(s):
 
 <pre>
-"use Ostinato::<ModuleName>"
+"use Ostinato::ModuleName"
 </pre>
 
 Each Ostinato module comes extensive documentation, accessible by using the
-"perldoc Ostinato::<ModuleName>" command, where <ModuleName> is replaced by
+"perldoc Ostinato::ModuleName" command, where 'ModuleName' is replaced by
 the name of the module (or just "perldoc Ostinato" for the parent Ostinato 
 class.
 
