@@ -12,11 +12,23 @@ YOU KNOW WHAT YOU ARE DOING, AND RESTRICT ACCESS TO TRUSTED USERS ONLY!!
 
 NO WARRANTY OR SUPPORT OF ANY KIND IS PROVIDED FOR THIS SOFTWARE.
 
+Dependencies
+------------
+
+Ostinato uses the barcodeReplacer application 
+(https://github.com/byuhbll/ostinato) in its Ostinato::Transaction module to 
+resolve any updates to ItemIDs/barcodes.
+
+Additionally, the yaz-marcdump utility (https://www.indexdata.com/yaz) is 
+required to convert catalog dumps to XML.
 
 Installation and Usage
 ----------------------
+Configure your instance of Ostinato by copying “./ostinato.example.conf” to 
+“./ostinato.conf” and modifying that file to match your server setup and 
+preferences.
 
-No installation is required to use this software.  Simply drop it somewhere on
+No additional installation is required to use this software.  Simply drop it somewhere on
 your Symphony server (but NOT in the Unicorn directory) and include a line in
 your Perl code to add it to your path:
 
@@ -41,7 +53,6 @@ available in the "examples" directory.
 
 License
 -------
-
 Ostinato was developed by Brigham Young University and is licensed under the 
 Creative Commons Attribution-ShareAlike 3.0 Unported License.  To view a copy
 of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.
