@@ -1,10 +1,15 @@
 Ostinato Version History
 ========================
 
+Ostinato v2.0.3 (released: 1 Feb 2013)
+---------------------------------------
+OTHER CHANGES:
+- Renamed readme.txt to README.md and version_history.txt to VERSION_HISTORY.md
+  and updated for public release.
+
+
 Ostinato v2.0.2 (released: 25 Jan 2013)
 ---------------------------------------
-NEW FEATURES:
-
 BUG FIXES:
 - Renamed ostinato.conf to onstinato.example.conf in the repository so the local
   ostinato.conf will not be overwritten when a new version is pulled from the
