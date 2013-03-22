@@ -12,6 +12,8 @@ our $VERSION    = '2.0.0';
 #Some class-level definitions
 use constant TRUE => 1;
 use constant FALSE => 0;
+use constant STDIN  => "/proc/self/fd/0";
+use constant STDOUT => "/proc/self/fd/1";
 use constant CONFIG_CATEGORY_OPTION => "option";
 use constant CONFIG_CATEGORY_MARC   => "marc";
 use constant CONFIG_CATEGORY_PATH   => "path";

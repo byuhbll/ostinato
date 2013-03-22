@@ -228,7 +228,7 @@ sub catalogdump
 	#Set the format based on the parameters
 	$format = (defined $args->{format})  ?  $args->{format}  :  FORMAT_MARC;
 	my $formatHandler = ($format == FORMAT_MARC)  ?  "-om"  :
-	                    ($format == FORMAT_XML)   ?  "-om | " . $self->{env}->getPath("yaz") . " -f utf8 -o marcxml /proc/self/fd/0"  :
+	                    ($format == FORMAT_XML)   ?  "-om | " . $self->{env}->getPath("yaz") . " -f utf8 -o marcxml " . Ostinato::STDIN  :
 						"-of";
 
 	my $libraryFilter = $self->{env}->{class}->{filter}->getFilter(Ostinato::Policy::LIBRARY);
