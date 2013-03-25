@@ -83,7 +83,8 @@ sub identifyRelevantLogs
 	my $self      = shift;
 
 	$self->{env}->printToLog("Retrieving a list of history files between " . $self->{dateStart_formatted} . " and " . $self->{dateEnd_formatted});
-	my $dirHist = $self->{env}->getPath("hist");
+	my $dirHist = `getpathname hist`;
+	chomp $dirHist;
 
 	my $dateCurrent = POSIX::strftime "%Y%m%d", localtime;
 	my $dateIter = $self->{dateStart};

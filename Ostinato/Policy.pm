@@ -49,7 +49,9 @@ sub importPolicies
 	}
 
 	#Parse policies file and extract desired types
-	open POLICIES, "<", $self->{env}->getPath('policies') or Carp::confess("Unable to open file \"" . $self->{env}->getPath('policies') ."\": $!");	
+	my $policiesPath = `getpathname policies`;
+	chomp $policiesPath;
+	open POLICIES, "<", $policiesPath or Carp::confess("Unable to open file \"" . $policiesPath ."\": $!");	
 	while(my $line = <POLICIES>)
 	{
 		my @fields = split(/\|/, $line);

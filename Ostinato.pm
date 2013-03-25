@@ -12,8 +12,8 @@ our $VERSION    = '2.0.0';
 #Some class-level definitions
 use constant TRUE => 1;
 use constant FALSE => 0;
-use constant STDIN  => "/proc/self/fd/0";
-use constant STDOUT => "/proc/self/fd/1";
+use constant STDIN_PATH => "/proc/self/fd/0";
+use constant STDOUT_PATH => "/proc/self/fd/1";
 use constant CONFIG_CATEGORY_OPTION => "option";
 use constant CONFIG_CATEGORY_MARC   => "marc";
 use constant CONFIG_CATEGORY_PATH   => "path";
@@ -77,12 +77,14 @@ sub importConfig
 sub importEnvironment
 {
 	my $self = shift;
+	my $environPath = `echo \`getpathname config\`/environ`;
+	chomp $environPath;
 
 	#The current environment must first be purged
 	%ENV = ();
 
 	#Import environment values from Symphony's environ file
-	open ENVFILE, "<", $self->getPath('environ') or Carp::confess("Cannot open file \"" . $self->getPath('environ') . "\": " . $!);
+	open ENVFILE, "<", $environPath or Carp::confess("Cannot open file \"" . $environPath . "\": " . $!);
 	while(<ENVFILE>)
 	{
 			next if ! m/=/;
@@ -116,7 +118,7 @@ sub saveTempFiles
 sub getSymphonyStatus
 {
 	my $self = shift;
-	my $cmd = $self->getPath("bin") . "/serverstatus wsserver";
+	my $cmd = "serverstatus wsserver";
 	my $response = (split /\=/, `$cmd`)[1];
 	chomp $response;
 	return $response;
