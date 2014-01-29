@@ -49,7 +49,7 @@ sub importPolicies
 	}
 
 	#Parse policies file and extract desired types
-	my $policiesPath = `getpathname policies`;
+	my $policiesPath = `echo \`getpathname config\`/policies`;
 	chomp $policiesPath;
 	open POLICIES, "<", $policiesPath or Carp::confess("Unable to open file \"" . $policiesPath ."\": $!");	
 	while(my $line = <POLICIES>)

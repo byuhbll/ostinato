@@ -43,5 +43,6 @@ my ($visibleKeys, $hiddenKeys) = $exporter->splitByVisibility({
 my $dumpFile2 = $exporter->catalogdump({
 	source     => $visibleKeys,
 	format     => Ostinato::Export::FORMAT_XML,
-	desination => "catalogdump.xml",
+	holdings   => Ostinato::FALSE,
+	destination => "catalogdump.xml",
 });

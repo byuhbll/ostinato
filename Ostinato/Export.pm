@@ -223,7 +223,7 @@ sub catalogdump
 		Carp::confess("Source file not provided or not found: $source");
 	}
 	my $destination = (defined $args->{destination})  ?  $args->{destination}  :  $self->{env}->getPath("temp") . "/" . $self->{env}->getEnvId() . ".ostinato.export.catalogdump.results";
-	print "DESTINATION: $destination\n";
+	#print "DESTINATION: $destination\n";
 
 	#Set the format based on the parameters
 	$format = (defined $args->{format})  ?  $args->{format}  :  FORMAT_MARC;
@@ -231,10 +231,13 @@ sub catalogdump
 	                    ($format == FORMAT_XML)   ?  "-om | " . $self->{env}->getPath("yaz") . " -f utf8 -o marcxml " . Ostinato::STDIN_PATH  :
 						"-of";
 
+	#Include MARC Holdings if requested
+	my $includeHoldings = (defined $args->{holdings} && $args->{holdings} == Ostinato::TRUE)  ?  "-lALL_MARCS"  :  "";
+
 	my $libraryFilter = $self->{env}->{class}->{filter}->getFilter(Ostinato::Policy::LIBRARY);
 	$libraryFilter = (defined $libraryFilter)  ?  "-y $libraryFilter"  :  "";
 
-	my $cmd = "cat " . $args->{source} . " | sort -u | catalogdump -h -i -kf -ku002 $libraryFilter 2>>" . $self->{env}->getPath("log") . " $formatHandler >$destination"; 
+	my $cmd = "cat " . $args->{source} . " | sort -u | catalogdump -h -i -kf -ku002 $libraryFilter $includeHoldings 2>>" . $self->{env}->getPath("log") . " $formatHandler >$destination"; 
 	system($cmd);
 
 	return $destination;
