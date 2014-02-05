@@ -1,4 +1,4 @@
-Ostinato Perl Library for Symphony, v.2.0.x
+Ostinato Perl Library for Symphony, v.2.1.x
 ===========================================
 
 The Ostinato library provides a set of Perl modules designed to automate some
