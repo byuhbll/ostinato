@@ -2,7 +2,7 @@ package Ostinato::Policy;
 
 use Ostinato;
 
-our $VERSION="2.0.0";
+our $VERSION="2.1.0";
 
 #Some class-level definitions
 use constant POLICY_TYPE  => 0;
@@ -270,8 +270,6 @@ The B<isLocationShadowed> function will return a boolean value indicating whethe
 
 =head1 Author/License
 
-(c) Brigham Young University, 2013.
-
 This file is part of the Ostinato Perl Library for SirsiDynix Symphony, developed independently by Brigham Young University.
 
-This work is licensed under the Creative Commons Attribution-ShareAlike 3.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/.
+License information is available in the Ostinato LICENSE.md document.
