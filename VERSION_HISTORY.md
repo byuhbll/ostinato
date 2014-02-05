@@ -1,6 +1,15 @@
 Ostinato Version History
 ========================
 
+Ostinato v2.1.0 (released: 5 Feb 2013)
+--------------------------------------
+NEW FEATURES:
+- Improved capability of Export.pm to better handle catalog keys that do not
+  appear in the ILS, and added the ability to wrap and export non-visible keys.
+
+OTHER CHANGES:
+- Changed license to BSD 3-clause license
+
 Ostinato v2.0.3 (released: 1 Feb 2013)
 ---------------------------------------
 OTHER CHANGES:
