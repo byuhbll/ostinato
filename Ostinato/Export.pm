@@ -11,6 +11,7 @@ use constant KEYS_PER_QUERY   => 500;
 use constant FORMAT_MARC => "marc";
 use constant FORMAT_FLAT => "flat";
 use constant FORMAT_XML  => "marcxml";
+use constant FORMAT_RAW  => "raw";
 use constant WHERE  => 0;
 use constant SELECT => 1;
 
@@ -307,6 +308,11 @@ sub createEmptyRecord
 	elsif($format eq FORMAT_XML)
 	{
 		$self->_convertKeysToMarcXML($args->{source}, $destination);
+	}
+	elsif($format eq FORMAT_RAW)
+	{
+		my $cmd = "cp \"" . $args->{source} . "\" \"$destination\"";
+		system($cmd);
 	}
 	else
 	{
